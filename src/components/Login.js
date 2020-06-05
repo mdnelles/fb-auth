@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { getck, login } from "./Functions/User";
+import { login } from "./Functions/User";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Paper from "@material-ui/core/Paper";
-import localForage from "localforage";
-import Recaptcha from "react-recaptcha";
+import { Alert } from "@material-ui/lab";
 
 const Msgbar = (props) => {
    const aStyle = {
@@ -22,14 +21,11 @@ const Msgbar = (props) => {
 export const Login = () => {
    const [email, setEmail] = useState("test@test.com"),
       [password, setPassword] = useState("password"),
-      [captchaKey, setCaptchaKey] = useState("na"),
-      [submitVisibleClass, setSubmitVisibleClass] = useState("displayNone"),
       [msg, setMsg] = useState("Enter valid credentials to proceed"),
+      [alertType, setAlertType] = useState("success"),
+      [alertMsg, setAlertMsg] = useState("Login to proceed"),
       [spin, setSpin] = useState("visible");
-
-   const captcha = () => {
-      setSubmitVisibleClass("displayBlock");
-   };
+   // alert types [success, warning, info, error]
 
    function onSubmit(e) {
       e.preventDefault();
@@ -39,61 +35,21 @@ export const Login = () => {
          email: email,
          password: password,
       };
-
-      if (
-         email === null ||
-         email === "" ||
-         password === null ||
-         password === ""
-      ) {
-         setSpin("hid");
-         setMsg("Please ender valid login credentials");
-      } else {
-         // firebase auth goes here
-         console.log("get firebase ");
-      }
-   }
-
-   let captchaPlace = "";
-   if (captchaKey !== undefined && captchaKey !== "na") {
-      // dont forget to add the following to the index.html file
-      // <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-      console.log("here");
-      captchaPlace = (
-         <Recaptcha
-            sitekey={captchaKey}
-            render="explicit"
-            verifyCallback={(event) => captcha(event)}
-         />
-      );
-   } else {
-      captchaPlace = "";
    }
 
    useEffect(() => {
       setSpin("hid");
       setMsg("Enter valid credentials to proceed");
-
-      console.log("captchaKey: " + captchaKey);
-      if (captchaKey === "na") {
-         // get captcha key
-         getck().then((data) => {
-            if (data !== undefined && data.length > 10) {
-               setTimeout(() => {
-                  setCaptchaKey(data);
-               }, 200); // delay to ensure data is set
-            } else {
-               console.log("Err: not authorized for captch key");
-            }
-         });
-      }
-   }, [captchaKey]);
+   }, []);
 
    return (
       <div>
          <div className="vertical-center center-outer" id="top">
             <div className="center-inner">
-               <Paper>Login here</Paper>
+               <Paper>
+                  <Alert severity={alertType}>{alertMsg}</Alert>
+                  Login here
+               </Paper>
             </div>
          </div>
       </div>
