@@ -34,20 +34,20 @@ body {
 .vertical-center {
    margin: 0;
    position: absolute;
-   top: 30%;
+   top: 20%;
 }
 .center {
    margin: auto;
    text-align: center;
-}
-.outlines {
-   border: 1px solid #61dafb;
 }
 .center-inner {
    display: table;
    margin: 0 auto;
 }
 
+.outlines {
+   border: 1px solid #61dafb;
+}
 .center-outer {
    width: 100%;
 }

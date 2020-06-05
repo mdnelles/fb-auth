@@ -19,5 +19,28 @@
    <body>
       <noscript>You need to enable JavaScript to run this app.</noscript>
       <div id="root"></div>
+      <!-- The core Firebase JS SDK is always required and must be listed first -->
+      <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script>
+
+      <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+      <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-analytics.js"></script>
+
+      <script>
+         // Your web app's Firebase configuration
+         var firebaseConfig = {
+            apiKey: "AIzaSyCvROq8SxUaPGGCj8I3Fp8_75xqyd_AOLE",
+            authDomain: "mnelles-auth1.firebaseapp.com",
+            databaseURL: "https://mnelles-auth1.firebaseio.com",
+            projectId: "mnelles-auth1",
+            storageBucket: "mnelles-auth1.appspot.com",
+            messagingSenderId: "1068354764269",
+            appId: "1:1068354764269:web:846a609ae68c23366cbbe4",
+            measurementId: "G-M635JQ3QNL",
+         };
+         // Initialize Firebase
+         firebase.initializeApp(firebaseConfig);
+         firebase.analytics();
+      </script>
    </body>
 </html>

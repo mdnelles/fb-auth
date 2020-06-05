@@ -44,11 +44,21 @@ export const Login = () => {
 
    return (
       <div>
-         <div className="vertical-center center-outer" id="top">
-            <div className="center-inner">
-               <Paper>
+         <div className="vertical-center center-outer">
+            <div
+               className="center-inner"
+               style={{
+                  padding: 10,
+                  minWidth: 300,
+                  minHeight: 300,
+                  padding: 20,
+               }}
+            >
+               <Paper style={{ padding: 10, minWidth: 300, minHeight: 300 }}>
                   <Alert severity={alertType}>{alertMsg}</Alert>
                   Login here
+                  <br />
+                  https://mdnelles.github.io/firebase-auth/
                </Paper>
             </div>
          </div>
