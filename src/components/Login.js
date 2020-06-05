@@ -42,10 +42,8 @@ export const Login = () => {
 
       if (
          email === null ||
-         email === undefined ||
          email === "" ||
          password === null ||
-         password === undefined ||
          password === ""
       ) {
          setSpin("hid");
