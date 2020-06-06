@@ -2,7 +2,7 @@ import React from "react";
 import app from "./base";
 import Button from "@material-ui/core/Button";
 
-const Home = () => {
+export const Home = () => {
    return (
       <div>
          <Button

@@ -6,6 +6,7 @@ import { Route, Redirect } from "react-router-dom";
 import "./App.css";
 
 import { Loading } from "./components/Loading";
+import { Home } from "./components/Home";
 
 export const AppWrapper = () => {
    const [activeSession, setActiveSession] = useState("loading");
