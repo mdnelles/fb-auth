@@ -15,7 +15,7 @@ const Login = ({ history }) => {
             history.push("/");
          } catch (error) {
             console.log(error);
-            alert(error);
+            //alert(error);
          }
       },
       [history]
